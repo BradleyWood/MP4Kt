@@ -36,7 +36,7 @@ fun mpfor(progression: IntProgression, body: (i: Int) -> Unit) {
     val np = getNumProcessors()
     val executor = MPExecutor(np)
 
-    val numIterations = Math.abs(progression.last - progression.first + 1) / progression.step + 1
+    val numIterations = Math.abs(progression.last - progression.first + 1) / progression.step
     val execsPerThread = if (numIterations < np) 1 else numIterations / np
     val remainder = if (numIterations < np) 0 else numIterations % np
     val increasing = progression.last > progression.first
